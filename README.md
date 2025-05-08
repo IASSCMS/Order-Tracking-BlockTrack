@@ -66,6 +66,27 @@ cd ./test-network
 ```
 
 > ✅ Note: Adjust `-ccp` if needed to point to your `chaincode-order` directory.
+>
+> ## ⚙️ One-Click Network Setup (Full Automation)
+
+To make setup easier, we’ve included a shell script: `scripts/setup_chaincode.sh`
+
+### 🔧 What It Does:
+- Brings down any existing Fabric network
+- Starts the test network with 2 organizations (Org1 + Org2)
+- Packages the chaincode
+- Installs it on both peers
+- Approves chaincode definition for both orgs
+- Commits chaincode
+- Ready for backend integration!
+
+---
+
+### 🚀 To Run It:
+```bash
+chmod +x scripts/setup_chaincode.sh
+./scripts/setup_chaincode.sh
+🔁 Make sure you're inside the test-network directory before running the script.
 
 ---
 
