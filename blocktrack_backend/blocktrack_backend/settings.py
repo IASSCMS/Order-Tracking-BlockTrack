@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from dotenv import load_dotenv
 load_dotenv()
-
+import dj_database_url
 
 from pathlib import Path
 
@@ -94,6 +94,12 @@ DATABASES = {
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT'),
     }
+}
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=f"postgresql://{os.getenv('POSTGRES_USER')}:{os.getenv('POSTGRES_PASSWORD')}@blocktrack_postgres:5432/{os.getenv('POSTGRES_DB')}"
+    )
 }
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
